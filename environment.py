@@ -12,6 +12,8 @@ class ENVIRONMENT:
         self.vars['is_prod'] = os.getenv('is_prod')
         self.vars['news_api_key'] = os.getenv('news_api_key')
         self.vars['news_api_url'] = os.getenv('news_api_url')
+        self.vars['stock_api_url'] = os.getenv('stock_api_url')
+        self.vars['stock_api_key'] = os.getenv('stock_api_key')
 
     def get(self, key):
         return self.vars[key]

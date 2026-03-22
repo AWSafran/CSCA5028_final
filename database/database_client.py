@@ -25,7 +25,7 @@ class DatabaseClient:
 
     def get_collection_by_name(self, name):
         client = self.get_client()
-        if name not in client.list_connection_names():
+        if name not in client.list_collection_names():
             client.create_collection(name)
         return client[name]
 
@@ -33,4 +33,7 @@ class DatabaseClient:
         collection_name = 'news_test' if self.is_test else 'news'
         return self.get_collection_by_name(collection_name)
     
+    def get_stock_collection(self):
+        collection_name = 'stock_test' if self.is_test else 'stock'
+        return self.get_collection_by_name(collection_name)
     

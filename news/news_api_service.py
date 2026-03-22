@@ -30,7 +30,7 @@ class NewsApiService:
             'domains': 'abcnews.go.com,us.cnn.com,cbsnews.com,politico.com,wsj.com,time.com,usatoday.com,apnews.com,reuters.com'
         }
     
-    def set_fetch_date(articles, selected_date):
+    def set_fetch_date(self, articles, selected_date):
         for article in articles:
             article['fetch_date'] = selected_date
         return articles
