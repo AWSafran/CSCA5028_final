@@ -24,10 +24,11 @@ def main():
     news_api_url = environment.get('news_api_url')
     news_api_service = NewsApiService(news_api_url, news_api_key)
 
-    news_api_service.fetch_articles(yesterday)
+    articles = news_api_service.fetch_articles(yesterday)
 
     #Store News Data
-
+    news_collection = database_client.get_news_collection()
+    news_collection.insert_many(articles)
 
     #Fetch Stock Data
 
