@@ -24,6 +24,7 @@ class NewsApiService:
             'apiKey': self.api_key,
             'sortBy': 'popularity',
             'from': selected_date,
+            'to': selected_date,
             'language': 'en',
             'pageSize': 10,
             'page': 1,

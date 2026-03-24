@@ -42,13 +42,16 @@ def main():
     stock_api_url = environment.get('stock_api_url')
     stock_api_service = StockApiService(stock_api_url, stock_api_key)
     stock_db_service = StockDbService(database_client.get_stock_collection())
-    #Fetch Stock Data
+    
+    #Fetch and store Stock Data
 
     stocks = stock_api_service.fetch_stocks(collection_date_string)
     stock_db_service.insert_stocks(stocks, collection_date_string)
-    #Store Stock Data
 
     #Log Date Collected
+
+    #Close db client connection
+    database_client.close_client()
 
     #Send Message with Date
 
