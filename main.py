@@ -4,6 +4,8 @@ from stock_db_service import StockDbService
 from stock_summary_db_service import StockSummaryDatabaseService
 import sys
 from datetime import date, timedelta
+from stock_helper  import calculate_deltas, get_nominal_delta_min_max, get_percent_delta_min_max
+
 
 def main(analysis_date_string):
     # Load ENV variables
@@ -48,22 +50,6 @@ def main(analysis_date_string):
 
     #Close db client connection
     database_client.close_client()
-
-
-def get_nominal_delta_min_max(stocks):
-    sorted_nominal = sorted(stocks, key=lambda x: x['delta'])
-    return sorted_nominal[:5], sorted_nominal[-5:]
-
-def get_percent_delta_min_max(stocks):
-    sorted_pct = sorted(stocks, key=lambda x: x['delta_pct'])
-    return sorted_pct[:5], sorted_pct[-5:]
-
-def calculate_deltas(stocks):
-    for stock in stocks:
-        stock['delta'] = stock['c'] - stock['o']
-        stock['delta_pct'] = stock['delta'] / stock['o']
-    return stocks
-
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
