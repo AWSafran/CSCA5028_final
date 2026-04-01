@@ -12,6 +12,8 @@ class StockApiService:
         stocks_response = requests.get(self.build_url(selected_date))
         json_response = stocks_response.json()
         if json_response['status'] == 'OK':
+            if json_response['resultsCount'] == 0:
+                return []
             return self.set_fetch_date(json_response['results'], selected_date)
         elif json_response['status'] == 'ERROR':
             raise Exception(json_response['error'])

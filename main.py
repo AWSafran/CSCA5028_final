@@ -5,14 +5,12 @@ from stock.stock_api_service import StockApiService
 from stock.stock_db_service import StockDbService
 from database.database_client import DatabaseClient
 from datetime import date, timedelta
+import sys
 
-def main():
+def main(collection_date_string):
     # Load ENV variables
     environment = ENVIRONMENT()
-
-    today = date.today()
-    collection_date = today - timedelta(days = 2)
-    collection_date_string = collection_date.isoformat()
+    print(collection_date_string)
 
     #Connect to Database
 
@@ -58,4 +56,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if (len(sys.argv)) > 1:
+        collection_date_string = sys.argv[1]
+        main(collection_date_string)
+    else:
+        today = date.today()
+        collection_date = today - timedelta(days = 2)
+        collection_date_string = collection_date.isoformat()
+        main(collection_date_string)
