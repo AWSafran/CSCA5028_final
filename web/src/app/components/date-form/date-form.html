@@ -1,8 +1,13 @@
-
 <div class="form-container">
     <mat-card class="calendar-container">
         <mat-calendar [(selected)]="selected"></mat-calendar>
     </mat-card>
 
-    <button matButton="tonal">Search</button>
+    <button matButton="tonal" (click)="onClick()" [disabled]="loading() || !selected()">Search</button>
+
+    @if(error()) {
+        <div class="error">
+            <p>An error occurred: {{ error() }}</p>
+        </div>
+    }   
 </div> 
