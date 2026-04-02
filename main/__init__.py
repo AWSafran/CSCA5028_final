@@ -1,8 +1,10 @@
 from flask import Flask
-from main.controller import routes
+from flask_cors import CORS
+from controller import routes
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     app.register_blueprint(routes)
     return app
 

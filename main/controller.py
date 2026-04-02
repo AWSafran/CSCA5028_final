@@ -1,6 +1,6 @@
 from flask import abort, Blueprint
-from main.environment import ENVIRONMENT
-from main.database_client import DatabaseClient
+from environment import ENVIRONMENT
+from database_client import DatabaseClient
 from bson import json_util
 import json
 import datetime
