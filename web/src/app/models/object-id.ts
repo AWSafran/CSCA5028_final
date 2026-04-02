@@ -1,3 +1,3 @@
 export interface ObjectId {
-    $oid?: string;
+    $oid: string;
 }

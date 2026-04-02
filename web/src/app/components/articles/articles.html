@@ -1,0 +1,11 @@
+<div class="container">
+    @if (articles()) {
+        <h2>Top Stories:</h2>
+        @for(article of articles(); track article._id.$oid) {
+            <app-article-card [article]="article"></app-article-card>
+        }
+    } 
+    @if(loading()) {
+        <p>loading</p>
+    }
+</div>

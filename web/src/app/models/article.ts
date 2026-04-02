@@ -2,7 +2,7 @@ import { ArticleSource } from "./article-source";
 import { ObjectId } from "./object-id";
 
 export interface Article {
-    _id?: ObjectId;
+    _id: ObjectId;
     source?: ArticleSource;
     author?: string;
     title?: string;
