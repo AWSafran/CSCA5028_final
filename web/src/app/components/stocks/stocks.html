@@ -1,0 +1,23 @@
+<div class="container">
+    @if (stockSummary()) {
+        <h2>Stock Summary:</h2>
+        @if (stockSummary()?.nominal_max) {
+            <app-stock-table title="Largest Nominal Increases" [stocks]="stockSummary()!.nominal_max!" sortKey="delta" [isDescending]="true"></app-stock-table>
+        }
+
+        @if (stockSummary()?.nominal_min) {
+            <app-stock-table title="Largest Nominal Decreases" [stocks]="stockSummary()!.nominal_min!" sortKey="delta" [isDescending]="false"></app-stock-table>
+        }
+        
+        @if (stockSummary()?.percent_max) {
+            <app-stock-table title="Largest Percentage Increases" [stocks]="stockSummary()!.percent_max!" sortKey="delta_pct" [isDescending]="true"></app-stock-table>
+        }
+
+        @if (stockSummary()?.percent_max) {
+            <app-stock-table title="Largest Percentage Increases" [stocks]="stockSummary()!.percent_min!" sortKey="delta_pct" [isDescending]="false"></app-stock-table>
+        }
+    } 
+    @if(loading()) {
+        <p>loading</p>
+    }
+</div>

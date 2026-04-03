@@ -1,11 +1,11 @@
 import { ObjectId } from "./object-id";
-import { stock } from "./stock";
+import { Stock } from "./stock";
 
 export interface StockSummary {
     _id?: ObjectId;
     fecth_date?: string;
-    percent_min?: stock[];
-    percent_max?: stock[];
-    nominal_min?: stock[];
-    nominal_max?: stock[];
+    percent_min?: Stock[];
+    percent_max?: Stock[];
+    nominal_min?: Stock[];
+    nominal_max?: Stock[];
 }

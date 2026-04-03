@@ -1,6 +1,6 @@
 import { ObjectId } from "./object-id"
 
-export interface stock {
+export interface Stock {
     T?: string,
     _id?: ObjectId
     c?: number;
