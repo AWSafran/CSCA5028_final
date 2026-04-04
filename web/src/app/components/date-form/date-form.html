@@ -3,7 +3,7 @@
         <mat-calendar [(selected)]="selected"></mat-calendar>
     </mat-card>
 
-    <button matButton="tonal" (click)="onClick()" [disabled]="loading() || !selected()">Search</button>
+    <button  (click)="onClick()" [disabled]="loading() || !selected()">Search</button>
 
     @if(error()) {
         <div class="error">
