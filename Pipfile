@@ -7,8 +7,8 @@ name = "pypi"
 pymongo = "*"
 flask = "*"
 dotenv = "*"
-flask-cors = "*"
 pytest = "*"
+flask-cors = "*"
 
 [dev-packages]
 
