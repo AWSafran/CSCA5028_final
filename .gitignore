@@ -1,0 +1,7 @@
+local_vars/*
+**/.env
+
+**/__pycache__/**
+**/.pytest_cache/**
+
+**/.venv/**
