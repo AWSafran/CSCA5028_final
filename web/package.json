@@ -9,7 +9,7 @@
     "test": "ng test",
     "global-installs": "npm i -g @angular/cli@20 && npm i -g @angular/build@20",
     "build-prod": "ng build --configuration production",
-    "start-prod": "npm run build-prod && node server.js"
+    "start-prod": "npm run global-installs && npm run build-prod && node server.js"
   },
   "prettier": {
     "printWidth": 100,
