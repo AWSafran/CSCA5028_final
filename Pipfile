@@ -9,6 +9,7 @@ flask = "*"
 dotenv = "*"
 pytest = "*"
 flask-cors = "*"
+gunicorn = "*"
 
 [dev-packages]
 
