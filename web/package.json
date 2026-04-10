@@ -25,6 +25,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/build": "^20.3.22",
     "@angular/cdk": "^20.2.14",
     "@angular/cli": "^20.3.22",
     "@angular/compiler-cli": "^20.3.0",
