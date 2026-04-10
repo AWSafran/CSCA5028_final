@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: "http://127.0.0.1:5000"
+    apiUrl: 'https://awsafran-5028-restapi-4995d129a009.herokuapp.com/'
 };
