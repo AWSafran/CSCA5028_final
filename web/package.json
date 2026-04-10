@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm run global-installs && npm ci && ng build --configuration production",
+    "build": "npm i --include-dev && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "global-installs": "npm i -g @angular/cli@20 && npm i -g @angular/build@20 && npm i -g @angular-devkit/build-angular@20",
