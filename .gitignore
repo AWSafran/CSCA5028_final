@@ -7,3 +7,4 @@ local_vars/*
 **/.venv/**
 
 venv/*
+__pycache__/
