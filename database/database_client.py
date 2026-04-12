@@ -37,3 +37,7 @@ class DatabaseClient:
         collection_name = 'stock_test' if self.is_test else 'stock'
         return self.get_collection_by_name(collection_name)
     
+    def get_logging_collection(self):
+        collection_name = 'logging_test' if self.is_test else 'logging'
+        return self.get_collection_by_name(collection_name)
+    
