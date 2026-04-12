@@ -3,6 +3,7 @@ from database_client import DatabaseClient
 from stock_db_service import StockDbService
 from stock_summary_db_service import StockSummaryDatabaseService
 from stock_helper  import calculate_deltas, get_nominal_delta_min_max, get_percent_delta_min_max
+from main import main
 
 TEST_FETCH_DATE = '2026-03-26'
 ORIGINAL_SUMMARY_T_VAL = 'ORIGINAL_FROM_TEST_DATE'
@@ -245,6 +246,31 @@ def test_stock_summary_insert():
     test_date_summary = stock_summary_collection.find_one({'date': TEST_FETCH_DATE})
     
     assert test_date_summary['nominal_min'][0]['T'] == NEW_SUMMARY_T_VAL
+
+
+def test_integration():
+    environment = ENVIRONMENT()
+
+    mongodb_connstring = environment.get('mongodb_connstring')
+    mongodb_name = environment.get('mongodb_name')
+
+    database_client = DatabaseClient(mongodb_connstring, mongodb_name, is_test=True)
+
+    assert database_client.is_connected() == True
+
+    stock_summary_collection = database_client.get_stock_summary_collection()
+
+    seed_test_db_stocks()
+    main(TEST_FETCH_DATE, True)
+    integration_output = stock_summary_collection.find_one({ 'date': TEST_FETCH_DATE })
+
+    assert integration_output['date'] == TEST_FETCH_DATE
+
+    assert integration_output['nominal_min'][0]['T'] == 'TEST6'
+    assert integration_output['nominal_max'][0]['T'] == 'TEST2'
+    assert integration_output['percent_min'][0]['T'] == 'TEST5'
+    assert integration_output['percent_max'][0]['T'] == 'TEST1'
+    
 
 
     

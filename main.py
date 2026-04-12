@@ -8,7 +8,7 @@ from stock_helper  import calculate_deltas, get_nominal_delta_min_max, get_perce
 from monitoring.logging_service import LoggingService
 
 
-def main(analysis_date_string):
+def main(analysis_date_string, is_test = False):
     # Load ENV variables
     environment = ENVIRONMENT()
 
@@ -17,7 +17,7 @@ def main(analysis_date_string):
     mongodb_connstring = environment.get('mongodb_connstring')
     mongodb_name = environment.get('mongodb_name')
 
-    database_client = DatabaseClient(mongodb_connstring, mongodb_name)
+    database_client = DatabaseClient(mongodb_connstring, mongodb_name, is_test)
 
     if database_client.is_connected():
         print('Successfully connected to database')
