@@ -21,5 +21,6 @@ class LoggingService:
     def build_base(self, fetch_date):
         return {
             'fetch_date': fetch_date,
-            'timestamp': datetime.datetime.now().isoformat()
+            'timestamp': datetime.datetime.now().isoformat(),
+            'application': 'data_collector'
         }
