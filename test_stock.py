@@ -21,7 +21,8 @@ def test_get_stocks(mock_get):
             {
                 #blank stock listing to have fetch_date affixed to
             }
-        ]
+        ],
+        'resultsCount': 1
     }
     #Initialize Service
     environment = ENVIRONMENT()

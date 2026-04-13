@@ -8,7 +8,7 @@ from monitoring.logging_service import LoggingService
 from datetime import date, timedelta
 import sys
 
-def main(collection_date_string):
+def main(collection_date_string, is_test=False):
     # Load ENV variables
     environment = ENVIRONMENT()
     print(collection_date_string)
@@ -18,7 +18,7 @@ def main(collection_date_string):
     mongodb_connstring = environment.get('mongodb_connstring')
     mongodb_name = environment.get('mongodb_name')
 
-    database_client = DatabaseClient(mongodb_connstring, mongodb_name)
+    database_client = DatabaseClient(mongodb_connstring, mongodb_name, is_test)
 
     if database_client.is_connected():
         print('Successfully connected to database')
