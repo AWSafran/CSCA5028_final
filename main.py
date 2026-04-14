@@ -6,6 +6,7 @@ from stock.stock_db_service import StockDbService
 from database.database_client import DatabaseClient
 from monitoring.logging_service import LoggingService
 from datetime import date, timedelta
+from mq.queue import send_date_to_queue
 import sys
 
 def main(collection_date_string, is_test=False):
@@ -64,7 +65,7 @@ def main(collection_date_string, is_test=False):
     database_client.close_client()
 
     #Send Message with Date
-
+    send_date_to_queue(collection_date_string)
 
 
 if __name__ == "__main__":
