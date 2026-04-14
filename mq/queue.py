@@ -4,7 +4,7 @@ from environment import ENVIRONMENT
 def send_date_to_queue(date_string):
     environment = ENVIRONMENT()
 
-    queue_url = environment.get('queue_url')
+    queue_url = environment.get('CLOUDAMQP_URL')
 
     params = pika.URLParameters(queue_url)
     connection = pika.BlockingConnection(params)

@@ -14,7 +14,7 @@ class ENVIRONMENT:
         self.vars['news_api_url'] = os.getenv('news_api_url')
         self.vars['stock_api_url'] = os.getenv('stock_api_url')
         self.vars['stock_api_key'] = os.getenv('stock_api_key')
-        self.vars['queue_url'] = os.getenv('queue_url')
+        self.vars['CLOUDAMQP_URL'] = os.getenv('CLOUDAMQP_URL')
 
     def get(self, key):
         return self.vars[key]
