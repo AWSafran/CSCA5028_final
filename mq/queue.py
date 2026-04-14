@@ -11,7 +11,7 @@ def send_date_to_queue(date_string):
     channel = connection.channel() # start a channel
     channel.queue_declare(queue='date_collected') # Declare a queue
     channel.basic_publish(exchange='',
-                        routing_key='date',
+                        routing_key='date_collected',
                         body=date_string)
     
     connection.close()
