@@ -1,6 +1,6 @@
 import pika
 from environment import ENVIRONMENT
-from start import main
+from main import main
 
 def callback(_ch, _method, _properties, body):
     main(body)
