@@ -1,6 +1,6 @@
 import pika
 from environment import ENVIRONMENT
-from main import main
+from start import main
 
 def callback(_ch, _method, _properties, body):
     main(body)
@@ -14,7 +14,7 @@ def setup_queue():
     channel = connection.channel() # start a channel
     channel.queue_declare(queue='date_collected') # Declare a queue
 
-    channel.basic_consume(
+    channel.consume(
         'date_collected', 
         callback, 
         auto_ack=True,
