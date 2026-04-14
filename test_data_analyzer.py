@@ -3,7 +3,7 @@ from database_client import DatabaseClient
 from stock_db_service import StockDbService
 from stock_summary_db_service import StockSummaryDatabaseService
 from stock_helper  import calculate_deltas, get_nominal_delta_min_max, get_percent_delta_min_max
-from main import main
+from start import main
 
 TEST_FETCH_DATE = '2026-03-26'
 ORIGINAL_SUMMARY_T_VAL = 'ORIGINAL_FROM_TEST_DATE'

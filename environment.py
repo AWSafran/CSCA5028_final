@@ -9,7 +9,7 @@ class ENVIRONMENT:
         
         self.vars['mongodb_connstring'] = os.getenv('mongodb_connstring')
         self.vars['mongodb_name'] = os.getenv('mongodb_name')
-        selv.vars['CLOUDAMQP_URL'] = os.getenv('CLOUDAMQP_URL')
+        self.vars['CLOUDAMQP_URL'] = os.getenv('CLOUDAMQP_URL')
 
     def get(self, key):
         return self.vars[key]
