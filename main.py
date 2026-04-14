@@ -2,12 +2,8 @@ from environment import ENVIRONMENT
 from database_client import DatabaseClient
 from stock_db_service import StockDbService
 from stock_summary_db_service import StockSummaryDatabaseService
-import sys
-from datetime import date, timedelta
 from stock_helper  import calculate_deltas, get_nominal_delta_min_max, get_percent_delta_min_max
 from monitoring.logging_service import LoggingService
-from mq import setup_queue
-
 
 def main(analysis_date_string, is_test = False):
     # Load ENV variables
@@ -65,10 +61,3 @@ def main(analysis_date_string, is_test = False):
 
     #Close db client connection
     database_client.close_client()
-
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        date_string = sys.argv[1]
-        main(date_string)
-    else:
-        setup_queue()
