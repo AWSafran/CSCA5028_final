@@ -2,9 +2,6 @@ import pika
 from environment import ENVIRONMENT
 from main import main
 
-def callback(_ch, _method, _properties, body):
-    main(body)
-
 def setup_queue():
     environment = ENVIRONMENT()
 
@@ -14,11 +11,11 @@ def setup_queue():
     channel = connection.channel() # start a channel
     channel.queue_declare(queue='date_collected') # Declare a queue
 
-    channel.consume(
+    for method_frame, properties, body in channel.consume(
         'date_collected', 
-        callback, 
         auto_ack=True,
-        inactivity_timeout=(3600 * 72)) #three days with now messages closes the connection
+        inactivity_timeout=(3600 * 72)): #three days with now messages closes the connection
+        main(body)
 
     channel.start_consuming()
     channel.close()
