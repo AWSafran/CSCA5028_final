@@ -15,7 +15,7 @@ def setup_queue():
         'date_collected', 
         auto_ack=True,
         inactivity_timeout=(3600 * 72)): #three days with now messages closes the connection
-        main(body)
+        main(body.decode())
 
     channel.start_consuming()
     channel.close()
